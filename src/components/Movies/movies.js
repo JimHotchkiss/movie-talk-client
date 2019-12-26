@@ -18,6 +18,7 @@ class Movies extends React.Component {
           id={movie.id}
           title={movie.title}
           posterUrl={movie.poster_path}
+          description={movie.overview}
         />
       );
     });
