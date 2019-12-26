@@ -1,11 +1,11 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 
 const Movie = props => {
   return (
-    <Container>
-      <Card style={{ width: "185px", margin: "1em" }}>
+    <div>
+      <Card style={{ width: "185px", margin: ".5em", textAlign: "center" }}>
         <Card.Img
           height="278px"
           variant="top"
@@ -23,8 +23,11 @@ const Movie = props => {
           <Card.Title>{props.title}</Card.Title>
           <Card.Text>{props.description}</Card.Text>
         </Card.Body>
+        <Button variant="secondary" size="lg" block>
+          Review
+        </Button>
       </Card>
-    </Container>
+    </div>
   );
 };
 export default Movie;
