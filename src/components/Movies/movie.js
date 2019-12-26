@@ -5,7 +5,14 @@ import Button from "react-bootstrap/Button";
 const Movie = props => {
   return (
     <div>
-      <Card style={{ width: "185px", margin: ".5em", textAlign: "center" }}>
+      <Card
+        style={{
+          boxShadow: "5px 5px 7px #7F7F7F",
+          width: "185px",
+          margin: ".5em",
+          textAlign: "center"
+        }}
+      >
         <Card.Img
           height="278px"
           variant="top"
