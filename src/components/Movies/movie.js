@@ -4,12 +4,12 @@ import Button from "react-bootstrap/Button";
 
 const Movie = props => {
   return (
-    <div>
+    <a style={{ textDecoration: "none", color: "black" }} href="#">
       <Card
         style={{
           boxShadow: "5px 5px 7px #7F7F7F",
           width: "185px",
-          margin: ".5em",
+          margin: ".75em",
           textAlign: "center"
         }}
       >
@@ -34,7 +34,7 @@ const Movie = props => {
           Review
         </Button>
       </Card>
-    </div>
+    </a>
   );
 };
 export default Movie;
