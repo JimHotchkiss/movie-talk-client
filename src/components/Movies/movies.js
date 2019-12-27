@@ -1,6 +1,5 @@
 import React from "react";
-import Movie from "./movie";
-import Button from "react-bootstrap/Button";
+import MovieCard from "./movieCard";
 
 const moviesApiKey = process.env.REACT_APP_API_KEY;
 class Movies extends React.Component {
@@ -14,7 +13,7 @@ class Movies extends React.Component {
   render() {
     const movie = this.state.movies.map(movie => {
       return (
-        <Movie
+        <MovieCard
           key={movie.id}
           id={movie.id}
           title={movie.title}

@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-const Movie = props => {
+const MovieCard = props => {
   return (
     <a style={{ textDecoration: "none", color: "black" }} href="#">
       <Card
@@ -37,4 +37,4 @@ const Movie = props => {
     </a>
   );
 };
-export default Movie;
+export default MovieCard;
