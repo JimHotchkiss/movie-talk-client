@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+
+import ReviewsButton from "./reviewsButton";
 
 const MovieCard = props => {
   return (
@@ -9,7 +10,7 @@ const MovieCard = props => {
         style={{
           boxShadow: "5px 5px 7px #7F7F7F",
           width: "185px",
-          margin: ".75em",
+          margin: ".85em",
           textAlign: "center"
         }}
       >
@@ -30,9 +31,7 @@ const MovieCard = props => {
           <Card.Title>{props.title}</Card.Title>
           <Card.Text>{props.description}</Card.Text>
         </Card.Body>
-        <Button variant="secondary" size="lg" block>
-          Review
-        </Button>
+        <ReviewsButton />
       </Card>
     </a>
   );
