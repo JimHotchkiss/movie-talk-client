@@ -1,9 +1,22 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
-import ReviewsButton from "./reviewsButton";
+import MovieReviews from "../MovieReviews/movieReviews";
 
 const MovieCard = props => {
+  const clickHandler = event => {
+    event.preventDefault();
+    console.log(props);
+    return (
+      <MovieReviews
+        movie={props}
+        movieId={props.id}
+        posterUrl={props.posterUrl}
+        title={props.title}
+      />
+    );
+  };
   return (
     <a style={{ textDecoration: "none", color: "black" }} href="#">
       <Card
@@ -31,7 +44,7 @@ const MovieCard = props => {
           <Card.Title>{props.title}</Card.Title>
           <Card.Text>{props.description}</Card.Text>
         </Card.Body>
-        <ReviewsButton />
+        <Button onClick={clickHandler}>Review</Button>
       </Card>
     </a>
   );
