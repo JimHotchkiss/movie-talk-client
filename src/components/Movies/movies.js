@@ -1,40 +1,58 @@
 import React from "react";
 import MovieCard from "./movieCard";
-
+import MovieReviews from "../MovieReviews/movieReviews";
+import Button from "react-bootstrap/Button";
 const moviesApiKey = process.env.REACT_APP_API_KEY;
 class Movies extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      movies: []
+      movies: [],
+      showReview: false
     };
   }
 
   render() {
+    const clickHandler = event => {
+      console.log("here");
+    };
     const movie = this.state.movies.map(movie => {
       return (
-        <MovieCard
-          key={movie.id}
-          id={movie.id}
-          title={movie.title}
-          posterUrl={movie.poster_path}
-          description={movie.overview}
-        />
+        <div>
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            posterUrl={movie.poster_path}
+            description={movie.overview}
+            showReview={this.state.showReview}
+          />
+          <Button onClick={this.clickHandler}>Reviews</Button>
+        </div>
       );
     });
-    return (
-      <div
-        style={{
-          backgroundColor: "#D8D8D8",
-          padding: ".5em",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center"
-        }}
-      >
-        {movie}
-      </div>
-    );
+
+    if (!this.state.showReview) {
+      return (
+        <div
+          style={{
+            backgroundColor: "#D8D8D8",
+            padding: ".5em",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center"
+          }}
+        >
+          {movie}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <MovieReviews />
+        </div>
+      );
+    }
   }
 
   componentDidMount() {

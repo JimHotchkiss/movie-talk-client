@@ -1,22 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-
 import MovieReviews from "../MovieReviews/movieReviews";
 
-const MovieCard = props => {
-  const clickHandler = event => {
-    event.preventDefault();
-    console.log(props);
-    return (
-      <MovieReviews
-        movie={props}
-        movieId={props.id}
-        posterUrl={props.posterUrl}
-        title={props.title}
-      />
-    );
-  };
+const MovieCard = ({ title, description, posterUrl, id }) => {
+  // const [showReviews, setShowReviews] = useState(false);
+  // const clickHandler = event => {
+  //   event.preventDefault();
+  //   setShowReviews(true);
+  // };
+
   return (
     <a style={{ textDecoration: "none", color: "black" }} href="#">
       <Card
@@ -30,9 +23,7 @@ const MovieCard = props => {
         <Card.Img
           height="278px"
           variant="top"
-          src={
-            "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + props.posterUrl
-          }
+          src={"https://image.tmdb.org/t/p/w185_and_h278_bestv2" + posterUrl}
         />
         <Card.Body
           style={{
@@ -41,10 +32,11 @@ const MovieCard = props => {
             height: "278px"
           }}
         >
-          <Card.Title>{props.title}</Card.Title>
-          <Card.Text>{props.description}</Card.Text>
+          <Card.Title>{title}</Card.Title>
+          <Card.Text>{description}</Card.Text>
         </Card.Body>
-        <Button onClick={clickHandler}>Reviews</Button>
+
+        {/* <Button>Reviews</Button> */}
       </Card>
     </a>
   );
