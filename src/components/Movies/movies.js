@@ -3,6 +3,7 @@ import MovieCard from "./movieCard";
 import MovieReviews from "../MovieReviews/movieReviews";
 import Button from "react-bootstrap/Button";
 const moviesApiKey = process.env.REACT_APP_API_KEY;
+let movieReviews = "";
 class Movies extends React.Component {
   constructor() {
     super();
@@ -12,14 +13,18 @@ class Movies extends React.Component {
     };
   }
 
+  clickHandler = (event, movieData) => {
+    movieReviews = <MovieReviews movieData={movieData} />;
+    this.setState({
+      showReview: true
+    });
+  };
   render() {
-    const clickHandler = event => {
-      console.log("here");
-    };
     const movie = this.state.movies.map(movie => {
       return (
-        <div>
+        <div key={movie.id}>
           <MovieCard
+            movieData={movie}
             key={movie.id}
             id={movie.id}
             title={movie.title}
@@ -27,7 +32,17 @@ class Movies extends React.Component {
             description={movie.overview}
             showReview={this.state.showReview}
           />
-          <Button onClick={this.clickHandler}>Reviews</Button>
+          <div style={{ paddingLeft: "14px" }}>
+            <Button
+              style={{
+                width: "187px",
+                textAlign: "center"
+              }}
+              onClick={event => this.clickHandler(event, movie)}
+            >
+              Reviews
+            </Button>
+          </div>
         </div>
       );
     });
@@ -47,11 +62,7 @@ class Movies extends React.Component {
         </div>
       );
     } else {
-      return (
-        <div>
-          <MovieReviews />
-        </div>
-      );
+      return <div>{movieReviews}</div>;
     }
   }
 

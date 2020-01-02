@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import MovieReviews from "../MovieReviews/movieReviews";
 
 const MovieCard = ({ title, description, posterUrl, id }) => {
-  // const [showReviews, setShowReviews] = useState(false);
-  // const clickHandler = event => {
-  //   event.preventDefault();
-  //   setShowReviews(true);
-  // };
-
   return (
     <a style={{ textDecoration: "none", color: "black" }} href="#">
       <Card
+        key={id}
         style={{
           boxShadow: "5px 5px 7px #7F7F7F",
           width: "185px",

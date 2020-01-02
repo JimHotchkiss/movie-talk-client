@@ -2,7 +2,7 @@ import React from "react";
 
 class MovieReviews extends React.Component {
   constructor(props) {
-    console.log(props);
+    console.log(props.movieData);
     super(props);
   }
   render() {
