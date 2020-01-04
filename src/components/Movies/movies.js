@@ -35,6 +35,8 @@ class Movies extends React.Component {
           <div style={{ paddingLeft: "14px" }}>
             <Button
               style={{
+                marginTop: "0",
+                marginBottom: "10px",
                 width: "187px",
                 textAlign: "center"
               }}
